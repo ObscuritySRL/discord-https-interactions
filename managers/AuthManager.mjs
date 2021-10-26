@@ -1,7 +1,3 @@
-/**
- * Import third-party modules
- */
-
 import Got from 'got';
 
 export default class AuthManager {

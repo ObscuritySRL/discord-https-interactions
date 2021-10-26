@@ -3,6 +3,20 @@ import Events from 'events';
 import AuthManager from '../managers/AuthManager';
 import FastifyManager from '../managers/FastifyManager';
 
+/**
+ * The main hub for interacting with the Discord API
+ * @extends {Events}
+ * @example
+ * const client = new Client({
+ *   clientId: process.env.CLIENT_ID,
+ *   clientSecret: process.env.CLIENT_SECRET,
+ *   host: process.env.HOST,
+ *   port: process.env.PORT,
+ *   publicKey: process.env.PUBLIC_KEY,
+ * });
+ *
+ * client.on('commandInteraction', console.log);
+ */
 export default class Client extends Events {
   constructor(data) {
     super();
