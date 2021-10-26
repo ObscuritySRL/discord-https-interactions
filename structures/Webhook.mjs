@@ -45,7 +45,7 @@ export default class Webhook {
         url: {
           enumerable: true,
           value: new URL(
-            `/api/webhooks/${this.applicationId}/${this.token}`,
+            `/api/webhooks/${applicationId}/${token}`,
             'https://discord.com',
           ).href,
         },
