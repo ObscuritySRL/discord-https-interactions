@@ -1,0 +1,30 @@
+{
+  "name": "discord-https-interactions",
+  "version": "1.0.0",
+  "description": "A powerful library for receiving and responding to Discord HTTPS interactions.",
+  "main": "index.mjs",
+  "scripts": {},
+  "keywords": [],
+  "author": "Stev Peifer <stev@bell.net>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@discordjs/collection": "^0.2.1",
+    "@discordjs/form-data": "^3.0.1",
+    "cacheable-lookup": "^6.0.3",
+    "discord.js": "^13.2.0",
+    "dotenv": "^10.0.0",
+    "fastify": "^3.22.0",
+    "fastify-raw-body": "^3.1.0",
+    "got": "^11.8.2",
+    "tweetnacl": "^1.0.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^1.0.3",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.1"
+  }
+}
