@@ -96,7 +96,7 @@ export default class User {
          * @readonly
          * @type {string}
          */
-        user: { enumerable: true, value: data.username },
+        username: { enumerable: true, value: data.username },
       },
     );
   }
