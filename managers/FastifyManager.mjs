@@ -25,7 +25,7 @@ export default class FastifyManager {
          * @readonly
          * @type {Client}
          */
-        client: { configurable: false, enumerable: true, value: client },
+        client: { enumerable: true, value: client },
 
         /**
          * The fastify instance
@@ -34,7 +34,6 @@ export default class FastifyManager {
          * @type {FastifyInstance}
          */
         fastify: {
-          configurable: false,
           enumerable: true,
           value:
             Fastify({ ignoreTrailingSlash: true, publicKey: Buffer.from(data.publicKey, 'hex') })
@@ -50,7 +49,7 @@ export default class FastifyManager {
          * @readonly
          * @type {string}
          */
-        host: { configurable: false, enumerable: true, value: data.host },
+        host: { enumerable: true, value: data.host },
 
         /**
          * The port number to use for requests
@@ -58,7 +57,7 @@ export default class FastifyManager {
          * @readonly
          * @type {number}
          */
-        port: { configurable: false, enumerable: true, value: data.port },
+        port: { enumerable: true, value: data.port },
 
         /**
          * The public key to use for verification
@@ -66,19 +65,15 @@ export default class FastifyManager {
          * @readonly
          * @type {string}
          */
-        publicKey: { configurable: false, enumerable: true, value: data.publicKey },
+        publicKey: { enumerable: true, value: data.publicKey },
       },
     );
 
     Object.defineProperties(
       this.fastify,
       {
-        client: { configurable: false, enumerable: true, value: client },
-        publicKey: {
-          configurable: false,
-          enumerable: true,
-          value: data.publicKey,
-        },
+        client: { enumerable: true, value: client },
+        publicKey: { enumerable: true, value: data.publicKey },
       },
     );
   }

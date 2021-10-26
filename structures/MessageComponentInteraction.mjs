@@ -25,7 +25,6 @@ export default class MessageComponentInteraction extends Interaction {
            * @type {string}
            */
         componentType: {
-          configurable: false,
           enumerable: true,
           value: MessageComponentInteraction.resolveType(data.data.component_type),
         },
@@ -36,31 +35,21 @@ export default class MessageComponentInteraction extends Interaction {
          * @readonly
          * @type {Snowflake}
          */
-        customId: { configurable: false, enumerable: true, value: data.data.custom_id },
+        customId: { enumerable: true, value: data.data.custom_id },
 
         /**
          * Whether the reply to this interaction has been deferred
          * @name MessageComponentInteraction#deferred
          * @type {boolean}
          */
-        deferred: {
-          configurable: false,
-          enumerable: true,
-          value: false,
-          writable: true,
-        },
+        deferred: { enumerable: true, value: false, writable: true },
 
         /**
          * Whether the reply to this interaction is ephemeral
          * @name MessageComponentInteraction#ephemeral
          * @type {boolean}
          */
-        ephemeral: {
-          configurable: false,
-          enumerable: true,
-          value: false,
-          writable: true,
-        },
+        ephemeral: { enumerable: true, value: false, writable: true },
 
         /**
          * The message to which the component was attached
@@ -68,23 +57,14 @@ export default class MessageComponentInteraction extends Interaction {
          * @readonly
          * @type {Message}
          */
-        message: {
-          configurable: false,
-          enumerable: true,
-          value: new Message(client, data.message, data.guild_id),
-        },
+        message: { enumerable: true, value: new Message(client, data.message, data.guild_id) },
 
         /**
          * Whether this interaction has already been replied to
          * @name MessageComponentInteraction#replied
          * @type {boolean}
          */
-        replied: {
-          configurable: false,
-          enumerable: true,
-          value: false,
-          writable: true,
-        },
+        replied: { enumerable: true, value: false, writable: true },
 
         /**
          * The webhook for this interaction
@@ -93,7 +73,6 @@ export default class MessageComponentInteraction extends Interaction {
          * @type {Webhook}
          */
         webhook: {
-          configurable: false,
           enumerable: true,
           value: new Webhook(this.client, data.application_id, data.token),
         },

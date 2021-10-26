@@ -15,7 +15,7 @@ export default class User {
          * @readonly
          * @type {?string}
          */
-        avatar: { configurable: false, enumerable: true, value: data.avatar ?? null },
+        avatar: { enumerable: true, value: data.avatar ?? null },
 
         /**
          * A link to the user's avatar
@@ -24,7 +24,6 @@ export default class User {
          * @returns {?URL}
          */
         avatarURL: {
-          configurable: false,
           enumerable: true,
           value: new URL(
             data.avatar
@@ -40,7 +39,7 @@ export default class User {
          * @readonly
          * @type {?boolean}
          */
-        bot: { configurable: false, enumerable: true, value: data.bot ?? null },
+        bot: { enumerable: true, value: data.bot ?? null },
 
         /**
          * The client that initiated this user
@@ -48,7 +47,7 @@ export default class User {
          * @readonly
          * @type {Client}
          */
-        client: { configurable: false, enumerable: true, value: client },
+        client: { enumerable: true, value: client },
 
         /**
          * The user's 4-digit discord-tag
@@ -56,7 +55,7 @@ export default class User {
          * @readonly
          * @type {number}
          */
-        discriminator: { configurable: false, enumerable: true, value: data.discriminator },
+        discriminator: { enumerable: true, value: data.discriminator },
 
         /**
          * The user's id
@@ -64,13 +63,13 @@ export default class User {
          * @readonly
          * @type {Snowflake}
          */
-        id: { configurable: false, enumerable: true, value: data.id },
+        id: { enumerable: true, value: data.id },
 
         /**
          * The string representation of the user
          * @returns {string}
          */
-        mention: { configurable: false, enumerable: true, value: `<@${data.id}>` },
+        mention: { enumerable: true, value: `<@${data.id}>` },
 
         /**
          * The public flags on a user's account
@@ -79,7 +78,6 @@ export default class User {
          * @type {?bigint}
          */
         publicFlags: {
-          configurable: false,
           enumerable: true,
           value: 'public_flags' in data ? new UserFlags(data.public_flags) : null,
         },
@@ -90,7 +88,7 @@ export default class User {
          * @readonly
          * @type {?string}
          */
-        tag: { configurable: false, enumerable: true, value: `${data.username}#${data.discriminator}` },
+        tag: { enumerable: true, value: `${data.username}#${data.discriminator}` },
 
         /**
          * The user's username, not unique across the platform
@@ -98,7 +96,7 @@ export default class User {
          * @readonly
          * @type {string}
          */
-        user: { configurable: false, enumerable: true, value: data.username },
+        user: { enumerable: true, value: data.username },
       },
     );
   }

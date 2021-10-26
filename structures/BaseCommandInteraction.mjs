@@ -26,7 +26,7 @@ export default class BaseCommandInteraction extends Interaction {
          * @readonly
          * @type {Snowflake}
          */
-        commandId: { configurable: false, enumerable: true, value: data.data.id },
+        commandId: { enumerable: true, value: data.data.id },
 
         /**
          * The invoked application command's name
@@ -34,44 +34,28 @@ export default class BaseCommandInteraction extends Interaction {
          * @readonly
          * @type {string}
          */
-        commandName: { configurable: false, enumerable: true, value: data.data.name },
+        commandName: { enumerable: true, value: data.data.name },
 
         /**
          * Whether the reply to this interaction has been deferred
          * @name BaseCommandInteraction#deferred
          * @type {boolean}
          */
-
-        deferred: {
-          configurable: false,
-          enumerable: true,
-          value: false,
-          writable: true,
-        },
+        deferred: { enumerable: true, value: false, writable: true },
 
         /**
          * Whether the reply to this interaction is ephemeral
          * @name BaseCommandInteraction#ephemeral
          * @type {boolean}
          */
-        ephemeral: {
-          configurable: false,
-          enumerable: true,
-          value: false,
-          writable: true,
-        },
+        ephemeral: { enumerable: true, value: false, writable: true },
 
         /**
          * Whether this interaction has already been replied to
          * @name BaseCommandInteraction#replied
          * @type {boolean}
          */
-        replied: {
-          configurable: false,
-          enumerable: true,
-          value: false,
-          writable: true,
-        },
+        replied: { enumerable: true, value: false, writable: true },
 
         /**
          * The webhook for this interaction
@@ -80,7 +64,6 @@ export default class BaseCommandInteraction extends Interaction {
          * @type {Webhook}
          */
         webhook: {
-          configurable: false,
           enumerable: true,
           value: new Webhook(this.client, data.application_id, data.token),
         },

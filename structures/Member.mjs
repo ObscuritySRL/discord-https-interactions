@@ -18,7 +18,7 @@ export default class Member {
          * @readonly
          * @type {?string}
          */
-        avatar: { configurable: false, enumerable: true, value: data.avatar },
+        avatar: { enumerable: true, value: data.avatar },
 
         /**
          * A link to the members's avatar
@@ -27,7 +27,6 @@ export default class Member {
          * @returns {?URL}
          */
         avatarURL: {
-          configurable: false,
           enumerable: true,
           value: new URL(
             data.avatar
@@ -45,7 +44,7 @@ export default class Member {
          * @readonly
          * @type {Client}
          */
-        client: { configurable: false, enumerable: true, value: client },
+        client: { enumerable: true, value: client },
 
         /**
          * Whether the member is deafened in voice channels
@@ -53,7 +52,7 @@ export default class Member {
          * @readonly
          * @type {?boolean}
          */
-        deaf: { configurable: false, enumerable: true, value: data.deaf ?? null },
+        deaf: { enumerable: true, value: data.deaf ?? null },
 
         /**
          * The nickname of this member, or their username if they don't have one
@@ -61,11 +60,7 @@ export default class Member {
          * @readonly
          * @type {?string}
          */
-        displayName: {
-          configurable: false,
-          enumerable: true,
-          value: data.nick ?? data.user.username,
-        },
+        displayName: { enumerable: true, value: data.nick ?? data.user.username },
 
         /**
          * The guild that the member belongs too
@@ -73,7 +68,7 @@ export default class Member {
          * @readonly
          * @type {?Snowflake}
          */
-        guildId: { configurable: false, enumerable: true, value: guildId ?? null },
+        guildId: { enumerable: true, value: guildId ?? null },
 
         /**
          * The member's id
@@ -81,7 +76,7 @@ export default class Member {
          * @readonly
          * @type {Snowflake}
          */
-        id: { configurable: false, enumerable: true, value: data.user.id },
+        id: { enumerable: true, value: data.user.id },
 
         /**
          * Whether this member has yet to pass the guild's membership gate
@@ -89,7 +84,7 @@ export default class Member {
          * @readonly
          * @type {boolean}
          */
-        isPending: { configurable: false, enumerable: true, value: data.is_pending },
+        isPending: { enumerable: true, value: data.is_pending },
 
         /**
          * The timestamp the member joined the guild at
@@ -98,13 +93,13 @@ export default class Member {
          * @type {?Date}
          */
 
-        joinedAt: { configurable: false, enumerable: true, value: new Date(data.joined_at) },
+        joinedAt: { enumerable: true, value: new Date(data.joined_at) },
 
         /**
          * The string representation of the member
          * @returns {string}
          */
-        mention: { configurable: false, enumerable: true, value: `<@${data.nick ? '!' : ''}${data.user.id}>` },
+        mention: { enumerable: true, value: `<@${data.nick ? '!' : ''}${data.user.id}>` },
 
         /**
          * Whether the member is muted in voice channels
@@ -112,7 +107,7 @@ export default class Member {
          * @readonly
          * @type {?boolean}
          */
-        mute: { configurable: false, enumerable: true, value: data.mute ?? null },
+        mute: { enumerable: true, value: data.mute ?? null },
 
         /**
          * The nickname of this member, if they have one
@@ -120,7 +115,7 @@ export default class Member {
          * @readonly
          * @type {?string}
          */
-        nickname: { configurable: false, enumerable: true, value: data.nick ?? null },
+        nickname: { enumerable: true, value: data.nick ?? null },
 
         /**
          * The permissions for this member
@@ -128,11 +123,7 @@ export default class Member {
          * @readonly
          * @type {bigint}
          */
-        permissions: {
-          configurable: false,
-          enumerable: true,
-          value: new Permissions(data.permissions).freeze(),
-        },
+        permissions: { enumerable: true, value: new Permissions(data.permissions).freeze() },
 
         /**
          * The timestamp of when the member used their Nitro boost on the guild, if it was used
@@ -141,7 +132,6 @@ export default class Member {
          * @type {?Date}
          */
         premiumSince: {
-          configurable: false,
           enumerable: true,
           value: data.premium_since ? new Date(data.premium_since) : null,
         },
@@ -152,7 +142,7 @@ export default class Member {
          * @readonly
          * @type {Snowflake[]}
          */
-        roles: { configurable: false, enumerable: true, value: data.roles },
+        roles: { enumerable: true, value: data.roles },
 
         /**
          * The user that this member represents
@@ -160,7 +150,7 @@ export default class Member {
          * @readonly
          * @type {User}
          */
-        user: { configurable: false, enumerable: true, value: new User(client, data.user) },
+        user: { enumerable: true, value: new User(client, data.user) },
       },
     );
   }

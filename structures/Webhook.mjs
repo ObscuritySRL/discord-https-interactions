@@ -18,7 +18,7 @@ export default class Webhook {
          * @readonly
          * @type {Snowflake}
          */
-        applicationId: { configurable: false, enumerable: true, value: applicationId },
+        applicationId: { enumerable: true, value: applicationId },
 
         /**
          * The client that initiated this webhook
@@ -26,7 +26,7 @@ export default class Webhook {
          * @readonly
          * @type {Client}
          */
-        client: { configurable: false, enumerable: true, value: client },
+        client: { enumerable: true, value: client },
 
         /**
          * The token for this webhook
@@ -34,7 +34,7 @@ export default class Webhook {
          * @readonly
          * @type {string}
          */
-        token: { configurable: false, enumerable: true, value: token },
+        token: { enumerable: true, value: token },
 
         /**
          * The URL for this webhook
@@ -43,7 +43,6 @@ export default class Webhook {
          * @type {URL}
          */
         url: {
-          configurable: false,
           enumerable: true,
           value: new URL(
             `/api/webhooks/${this.applicationId}/${this.token}`,

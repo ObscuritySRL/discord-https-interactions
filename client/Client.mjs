@@ -30,11 +30,7 @@ export default class Client extends Events {
          * @readonly
          * @type {AuthManager}
          */
-        authManager: {
-          configurable: false,
-          enumerable: true,
-          value: new AuthManager(this, data.clientSecret),
-        },
+        authManager: { enumerable: true, value: new AuthManager(this, data.clientSecret) },
 
         /**
          * The client id
@@ -42,7 +38,7 @@ export default class Client extends Events {
          * @readonly
          * @type {string}
          */
-        clientId: { configurable: false, enumerable: true, value: data.clientId },
+        clientId: { enumerable: true, value: data.clientId },
 
         /**
          * The fastify manager for this client
@@ -51,7 +47,6 @@ export default class Client extends Events {
          * @type {FastifyManager}
          */
         fastifyManager: {
-          configurable: false,
           enumerable: true,
           value: new FastifyManager(
             this,

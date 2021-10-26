@@ -12,7 +12,7 @@ export default class CommandInteractionOptions {
          * @readonly
          * @type {Client}
          */
-        client: { configurable: false, enumerable: true, value: client },
+        client: { enumerable: true, value: client },
 
         /**
          * If the command was a sub command
@@ -20,7 +20,7 @@ export default class CommandInteractionOptions {
          * @readonly
          * @type {Boolean}
          */
-        isSubCommand: { configurable: false, enumerable: true, value: options[0]?.type === 'SUB_COMMAND' },
+        isSubCommand: { enumerable: true, value: options[0]?.type === 'SUB_COMMAND' },
 
         /**
          * If the command was a sub command group
@@ -28,7 +28,7 @@ export default class CommandInteractionOptions {
          * @readonly
          * @type {Boolean}
          */
-        isSubCommandGroup: { configurable: false, enumerable: true, value: options[0]?.type === 'SUB_COMMAND_GROUP' },
+        isSubCommandGroup: { enumerable: true, value: options[0]?.type === 'SUB_COMMAND_GROUP' },
 
         /**
          * The bottom-level options for the interaction. If there is a subcommand (or subcommand and
@@ -38,7 +38,6 @@ export default class CommandInteractionOptions {
          * @type {*[]}
          */
         options: {
-          configurable: false,
           enumerable: true,
           value: options[0]?.type === 'SUB_COMMAND' || options[0]?.type === 'SUB_COMMAND_GROUP'
             ? options[0].options
@@ -51,11 +50,7 @@ export default class CommandInteractionOptions {
          * @readonly
          * @type {?string}
          */
-        subCommandName: {
-          configurable: false,
-          enumerable: true,
-          value: options[0]?.type === 'SUB_COMMAND' ? options[0]?.name : null,
-        },
+        subCommandName: { enumerable: true, value: options[0]?.type === 'SUB_COMMAND' ? options[0]?.name : null },
 
         /**
          * The name of the sub command group, if one exists
@@ -63,11 +58,7 @@ export default class CommandInteractionOptions {
          * @readonly
          * @type {?string}
          */
-        subCommandGroupName: {
-          configurable: false,
-          enumerable: true,
-          value: options[0]?.type === 'SUB_COMMAND_GROUP' ? options[0]?.name : null,
-        },
+        subCommandGroupName: { enumerable: true, value: options[0]?.type === 'SUB_COMMAND_GROUP' ? options[0]?.name : null },
       },
     );
 
@@ -75,6 +66,8 @@ export default class CommandInteractionOptions {
   }
 
   // #resolved = null;
+
+  // TODO: Properly comment methods
 
   get(name) {
     const option = this.options.find(({ name: optionName }) => optionName === name);

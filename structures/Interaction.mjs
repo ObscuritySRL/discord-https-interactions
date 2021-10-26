@@ -19,7 +19,7 @@ export default class Interaction {
          * @readonly
          * @type {Snowflake}
          */
-        applicationId: { configurable: false, numerable: true, value: data.application_id },
+        applicationId: { numerable: true, value: data.application_id },
 
         /**
          * The id of the channel this interaction was sent in
@@ -27,7 +27,7 @@ export default class Interaction {
          * @readonly
          * @type {?Snowflake}
          */
-        channelId: { configurable: false, enumerable: true, value: data.channel_id ?? null },
+        channelId: { enumerable: true, value: data.channel_id ?? null },
 
         /**
          * The client that this auth manager belongs to
@@ -35,7 +35,7 @@ export default class Interaction {
          * @readonly
          * @type {Client}
          */
-        client: { configurable: false, enumerable: true, value: client },
+        client: { enumerable: true, value: client },
 
         /**
          * The id of the guild this interaction was sent in
@@ -43,7 +43,7 @@ export default class Interaction {
          * @readonly
          * @type {?Snowflake}
          */
-        guildId: { configurable: false, enumerable: true, value: data.guild_id ?? null },
+        guildId: { enumerable: true, value: data.guild_id ?? null },
 
         /**
          * The interaction's id
@@ -51,7 +51,7 @@ export default class Interaction {
          * @readonly
          * @type {Snowflake}
          */
-        id: { configurable: false, enumerable: true, value: data.id ?? null },
+        id: { enumerable: true, value: data.id ?? null },
 
         /**
          * Indicates whether this interaction is received from a guild
@@ -59,11 +59,7 @@ export default class Interaction {
          * @readonly
          * @returns {boolean}
          */
-        isInGuild: {
-          configurable: false,
-          enumerable: true,
-          value: Boolean(this.guildId && this.member),
-        },
+        isInGuild: { enumerable: true, value: Boolean(this.guildId && this.member) },
 
         /**
          * If this interaction was sent in a guild, the member which sent it
@@ -72,7 +68,6 @@ export default class Interaction {
          * @type {?Member}
          */
         member: {
-          configurable: false,
           enumerable: true,
           value: data.member ? new Member(client, data.member, data.guild_id) : null,
         },
@@ -83,7 +78,7 @@ export default class Interaction {
          * @readonly
          * @type {string}
          */
-        token: { configurable: false, enumerable: true, value: data.token },
+        token: { enumerable: true, value: data.token },
 
         /**
          * The type of interaction
@@ -91,7 +86,7 @@ export default class Interaction {
          * @readonly
          * @type {InteractionType}
          */
-        type: { configurable: false, enumerable: true, value: InteractionTypes[data.type] },
+        type: { enumerable: true, value: InteractionTypes[data.type] },
 
         /**
          * The user which sent this interaction
@@ -99,11 +94,7 @@ export default class Interaction {
          * @readonly
          * @type {User}
          */
-        user: {
-          configurable: false,
-          enumerable: true,
-          value: new User(client, data.member?.user ?? data.user),
-        },
+        user: { enumerable: true, value: new User(client, data.member?.user ?? data.user) },
 
         /**
          * The interaction version
@@ -111,7 +102,7 @@ export default class Interaction {
          * @readonly
          * @type {number}
          */
-        version: { configurable: false, enumerable: true, value: data.version },
+        version: { enumerable: true, value: data.version },
       },
     );
   }

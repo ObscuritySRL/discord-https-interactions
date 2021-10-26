@@ -22,11 +22,7 @@ export default class Message {
          * @readonly
          * @type {?Snowflake}
          */
-        applicationId: {
-          configurable: false,
-          enumerable: true,
-          value: data.application_id ?? null,
-        },
+        applicationId: { enumerable: true, value: data.application_id ?? null },
 
         /**
          * Any attached files
@@ -34,7 +30,7 @@ export default class Message {
          * @name Message#attachments
          * @type {MessageAttachment[]}
          */
-        attachments: { configurable: false, enumerable: true, value: data.attachments },
+        attachments: { enumerable: true, value: data.attachments },
 
         /**
          * The author of this message
@@ -42,7 +38,7 @@ export default class Message {
          * @readonly
          * @type {User}
          */
-        author: { configurable: false, enumerable: true, value: new User(client, data.author) },
+        author: { enumerable: true, value: new User(client, data.author) },
 
         /**
          * The id of the channel the message was sent in
@@ -50,7 +46,7 @@ export default class Message {
          * @readonly
          * @type {Snowflake}
          */
-        channelId: { configurable: false, enumerable: true, value: data.channel_id },
+        channelId: { enumerable: true, value: data.channel_id },
 
         /**
          * The client that initiated the message
@@ -58,7 +54,7 @@ export default class Message {
          * @readonly
          * @type {Client}
          */
-        client: { configurable: false, enumerable: true, value: client },
+        client: { enumerable: true, value: client },
 
         /**
          * Sent if the message contains components like buttons, action rows, or other interactive
@@ -67,7 +63,7 @@ export default class Message {
          * @name Message#components
          * @type {MessageComponent[]}
          */
-        components: { configurable: false, enumerable: true, value: data.components },
+        components: { enumerable: true, value: data.components },
 
         /**
          * The contents of the message
@@ -75,7 +71,7 @@ export default class Message {
          * @readonly
          * @type {?string}
          */
-        content: { configurable: false, enumerable: true, value: data.content ?? null },
+        content: { enumerable: true, value: data.content ?? null },
 
         /**
          * When this message was edited (or null if never)
@@ -84,7 +80,6 @@ export default class Message {
          * @type {?Date}
          */
         editedTimestamp: {
-          configurable: false,
           enumerable: true,
           value: data.editedTimestamp ? new Date(data.editedTimestamp) : null,
         },
@@ -95,7 +90,7 @@ export default class Message {
          * @name Message#embeds
          * @type {MessageEmbed[]}
          */
-        embeds: { configurable: false, enumerable: true, value: data.embeds },
+        embeds: { enumerable: true, value: data.embeds },
 
         /**
          * Message flags combined as a bitfield
@@ -103,7 +98,6 @@ export default class Message {
          * @type {MessageFlags}
          */
         flags: {
-          configurable: false,
           enumerable: true,
           value: new MessageFlags(data.flags).freeze(),
         },
@@ -114,7 +108,7 @@ export default class Message {
          * @readonly
          * @type {?Snowflake}
          */
-        guildId: { configurable: false, enumerable: true, value: guildId ?? null },
+        guildId: { enumerable: true, value: guildId ?? null },
 
         /**
          * The id of the message
@@ -129,22 +123,14 @@ export default class Message {
          * @name Message#mentionedChannels
          * @type {Set<Snowflake>}
          */
-        mentionedChannels: {
-          configurable: false,
-          enumerable: true,
-          value: new Set(data.mention_channels ?? []),
-        },
+        mentionedChannels: { enumerable: true, value: new Set(data.mention_channels ?? []) },
 
         /**
          * Roles specifically mentioned in this message
          * @name Message#mentionedRoles
          * @type {Set<Snowflake>}
          */
-        mentionedRoles: {
-          configurable: false,
-          enumerable: true,
-          value: new Set(data.mention_roles ?? []),
-        },
+        mentionedRoles: { enumerable: true, value: new Set(data.mention_roles ?? []) },
 
         /**
          * Users specifically mentioned in this message
@@ -152,7 +138,6 @@ export default class Message {
          * @type {Collection<Snowflake, User>}
          */
         mentionedUsers: {
-          configurable: false,
           enumerable: true,
           value: new Collection(data.mentions.map((user) => [user.id, new User(client, user)])),
         },
@@ -162,21 +147,21 @@ export default class Message {
          * @name Message#mentionsEveryone
          * @type {boolean}
          */
-        mentionsEveryone: { configurable: false, enumerable: true, value: data.mention_everyone },
+        mentionsEveryone: { enumerable: true, value: data.mention_everyone },
 
         /**
          * Whether this message is pinned
          * @name Message#isPinned
          * @type {boolean}
          */
-        isPinned: { configurable: false, enumerable: true, value: data.pinned },
+        isPinned: { enumerable: true, value: data.pinned },
 
         /**
          * Whether this was a TTS message
          * @name Message#isTTS
          * @type {boolean}
          */
-        isTTS: { configurable: false, enumerable: true, value: data.tts },
+        isTTS: { enumerable: true, value: data.tts },
 
         /**
          * When this message was sent
@@ -184,7 +169,7 @@ export default class Message {
          * @readonly
          * @type {date}
          */
-        timestamp: { configurable: false, enumerable: true, value: new Date(data.timestamp) },
+        timestamp: { enumerable: true, value: new Date(data.timestamp) },
 
         /**
          * The type of the message
@@ -192,7 +177,7 @@ export default class Message {
          * @readonly
          * @type {?MessageType}
          */
-        type: { configurable: false, enumerable: true, value: MessageTypes[data.type] },
+        type: { enumerable: true, value: MessageTypes[data.type] },
 
         /**
          * If the message is generated by a webhook, this is the webhook's id
@@ -200,7 +185,7 @@ export default class Message {
          * @readonly
          * @type {?Snowflake}
          */
-        webhookId: { configurable: false, enumerable: true, value: data.webhook_id ?? null },
+        webhookId: { enumerable: true, value: data.webhook_id ?? null },
       },
     );
   }

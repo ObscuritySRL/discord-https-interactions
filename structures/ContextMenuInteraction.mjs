@@ -21,7 +21,6 @@ export default class ContextMenuInteraction extends BaseCommandInteraction {
          * @type {CommandInteractionOptionResolver}
          */
         options: {
-          configurable: false,
           enumerable: true,
           value: new CommandInteractionOptionResolver(
             this.client,
@@ -36,7 +35,7 @@ export default class ContextMenuInteraction extends BaseCommandInteraction {
          * @readonly
          * @type {Snowflake}
          */
-        targetId: { configurable: false, enumerable: true, value: data.data.target_id },
+        targetId: { enumerable: true, value: data.data.target_id },
 
         /**
          * The type of the target of the interaction; either USER or MESSAGE
@@ -44,11 +43,7 @@ export default class ContextMenuInteraction extends BaseCommandInteraction {
          * @readonly
          * @type {ApplicationCommandType}
          */
-        targetType: {
-          configurable: false,
-          enumerable: true,
-          value: ApplicationCommandTypes[data.data.type],
-        },
+        targetType: { enumerable: true, value: ApplicationCommandTypes[data.data.type] },
       },
     );
   }

@@ -19,7 +19,7 @@ export default class AuthManager {
          * @readonly
          * @type {Client}
          */
-        client: { configurable: false, enumerable: true, value: client },
+        client: { enumerable: true, value: client },
 
         /**
          * The client secret used for authorization
@@ -27,7 +27,7 @@ export default class AuthManager {
          * @readonly
          * @type {string}
          */
-        clientSecret: { configurable: false, enumerable: true, value: clientSecret },
+        clientSecret: { enumerable: true, value: clientSecret },
 
         /**
          * Whether the auth manager is ready - has a token
@@ -36,7 +36,6 @@ export default class AuthManager {
          * @type {boolean}
          */
         ready: {
-          configurable: false,
           enumerable: true,
           get() {
             return this.authorization !== null;
@@ -70,7 +69,6 @@ export default class AuthManager {
         this,
         {
           authorization: {
-            configurable: false,
             enumerable: true,
             value: `${token.token_type} ${token.access_token}`,
           },

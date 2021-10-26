@@ -19,7 +19,6 @@ export default class CommandInteraction extends BaseCommandInteraction {
       this,
       {
         options: {
-          configurable: false,
           enumerable: true,
           value:
           new CommandInteractionOptionResolver(
