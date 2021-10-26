@@ -1,6 +1,5 @@
+import { Collection } from '@discordjs/collection';
 import { Constants, MessageFlags } from 'discord.js';
-
-import Collection from '@discordjs/collection';
 
 import User from './User';
 
