@@ -46,6 +46,13 @@ export default class AuthManager {
   }
 
   /**
+   * The open authorization 2 URL
+   * @private
+   * @readonly
+   */
+  static #oAuth2URL = new URL('api/oauth2/token', 'https://discord.com/').href;
+
+  /**
    * Get an authorization header
    * @async
    * @public
@@ -54,7 +61,7 @@ export default class AuthManager {
   async start() {
     try {
       const token = await Got.post(
-        new URL('api/oauth2/token', 'https://discord.com/'),
+        AuthManager.#oAuth2URL,
         {
           form: {
             client_id: this.client.clientId,
@@ -67,12 +74,7 @@ export default class AuthManager {
 
       Object.defineProperties(
         this,
-        {
-          authorization: {
-            enumerable: true,
-            value: `${token.token_type} ${token.access_token}`,
-          },
-        },
+        { authorization: { enumerable: true, value: `${token.token_type} ${token.access_token}` } },
       );
     } catch (error) {
       this.client.emit('authManagerError', error);
