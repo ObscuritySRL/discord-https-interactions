@@ -1,6 +1,7 @@
 import { Collection } from '@discordjs/collection';
 import { Constants, MessageFlags } from 'discord.js';
 
+import MessageAttachment from './MessageAttachment';
 import User from './User';
 
 const { MessageTypes } = Constants;
@@ -25,11 +26,20 @@ export default class Message {
 
         /**
          * Any attached files
-         * TODO: Create MessageAttachment structure
          * @name Message#attachments
          * @type {MessageAttachment[]}
          */
-        attachments: { enumerable: true, value: data.attachments },
+        attachments: {
+          enumerable: true,
+          value: new Collection(
+            data.attachments.map(
+              (attachment) => [
+                attachment.id,
+                new MessageAttachment(attachment.url, attachment.filename, attachment),
+              ],
+            ),
+          ),
+        },
 
         /**
          * The author of this message

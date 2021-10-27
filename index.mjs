@@ -17,6 +17,7 @@ export { default as ContextMenuInteraction } from './structures/ContextMenuInter
 export { default as Interaction } from './structures/Interaction';
 export { default as Member } from './structures/Member';
 export { default as Message } from './structures/Message';
+export { default as MessageAttachment } from './structures/MessageAttachment';
 export { default as MessageButton } from './structures/MessageButton';
 export { default as MessageSelectMenu } from './structures/MessageSelectMenu';
 export { default as MessageComponentInteraction } from './structures/MessageComponentInteraction';
