@@ -1,5 +1,3 @@
-/*  */
-
 import { Constants } from 'discord.js';
 
 import Fastify from 'fastify';
