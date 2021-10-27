@@ -27,7 +27,7 @@ export default class Message {
         /**
          * Any attached files
          * @name Message#attachments
-         * @type {MessageAttachment[]}
+         * @type {Collection<Snowflake, MessageAttachment>}
          */
         attachments: {
           enumerable: true,
