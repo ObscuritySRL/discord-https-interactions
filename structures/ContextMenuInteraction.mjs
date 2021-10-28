@@ -51,7 +51,7 @@ export default class ContextMenuInteraction extends BaseCommandInteraction {
   /**
    * Resolves and transforms options received from the API for a context menu interaction.
    *
-   * TODO: Create message type
+   * TODO: Create message structure
    *
    * @param {APIApplicationCommandInteractionData} data The interaction data
    * @returns {CommandInteractionOption[]}
@@ -76,15 +76,6 @@ export default class ContextMenuInteraction extends BaseCommandInteraction {
         ),
       );
     }
-
-    // if( resolved.messages?.[ target_id ] )
-    //     result.push( {
-    //         name: 'message',
-    //         value: target_id,
-    //         message:
-    // this.channel?.messages._add(resolved.messages[target_id]) ?? resolved.messages[target_id],
-    //         type: 'MESSAGE',
-    //     } );
 
     return result;
   }
