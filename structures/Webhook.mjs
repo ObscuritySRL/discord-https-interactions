@@ -2,10 +2,11 @@ import CacheableLookup from 'cacheable-lookup';
 import FormData from '@discordjs/form-data';
 import Got from 'got';
 
+import MessagePayload from './MessagePayload';
 import Message from './Message';
 
 /**
- * Represents a webhook.
+ * Represents an interaction webhook
  */
 export default class Webhook {
   constructor(client, applicationId, token) {
@@ -54,7 +55,7 @@ export default class Webhook {
   }
 
   // TODO: Everything... Dig in...
-  async send(options) {
+  async send(payload) {
     this.send.gotOptions ??= {
       cache: new Map(),
       decompress: true,
@@ -62,33 +63,33 @@ export default class Webhook {
       http2: true,
     };
 
-    let response;
+    /* eslint-disable-next-line no-param-reassign */
+    payload = payload instanceof MessagePayload ? payload : new MessagePayload(payload);
 
-    if (options.files?.length) {
-      const body = new FormData();
+    const body = new FormData();
 
-      options.files.forEach((file) => body.append(file.name, file.file, file.name));
+    if (payload.attachments?.length) {
+      payload.attachments.forEach(
+        (attachment) => body.append(
+          attachment.filename,
+          attachment.attachment,
+          attachment.filename,
+        ),
+      );
+    }
 
-      if (options.data != null) { body.append('payload_json', JSON.stringify(options.data)); }
+    body.append('payload_json', JSON.stringify(payload.data));
 
-      response = await Got.post(
+    return new Message(
+      this.client,
+      await Got.post(
         this.url,
         {
           ...this.send.gotOptions,
           body,
           headers: body.getHeaders(),
         },
-      ).json();
-    } else {
-      response = await Got.post(
-        this.url,
-        {
-          ...this.send.gotOptions,
-          json: options,
-        },
-      ).json();
-    }
-
-    return new Message(this.client, response);
+      ).json(),
+    );
   }
 }
