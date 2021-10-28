@@ -3,7 +3,7 @@ import { Constants } from 'discord.js';
 const { MessageButtonStyles, MessageComponentTypes } = Constants;
 
 /**
- * Represents a button message component
+ * Represents a button component
  * @see {@link https://discord.com/developers/docs/interactions/message-components#button-object}
  */
 export default class MessageButton {
@@ -78,7 +78,7 @@ export default class MessageButton {
    * @returns {MessageButtonStyle}
    */
   static #resolveStyle(style) {
-    return typeof style === 'string' ? style : MessageButtonStyles[style];
+    return typeof style === 'string' ? MessageButtonStyles[style] : style;
   }
 
   /**
@@ -98,7 +98,7 @@ export default class MessageButton {
    * @returns {MessageButton}
    */
   setDisabled(disabled = true) {
-    this.disabled = Boolean(disabled);
+    this.disabled = disabled;
 
     return this;
   }
@@ -157,7 +157,7 @@ export default class MessageButton {
       disabled: this.disabled,
       emoji: this.emoji,
       label: this.label,
-      style: MessageButtonStyles[this.style],
+      style: this.style,
       type: MessageComponentTypes.BUTTON,
       url: this.url,
     };
