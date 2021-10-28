@@ -35,7 +35,7 @@ export default class Message {
             data.attachments.map(
               (attachment) => [
                 attachment.id,
-                new MessageAttachment(attachment.url, attachment.filename, attachment),
+                new MessageAttachment(attachment),
               ],
             ),
           ),
