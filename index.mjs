@@ -22,6 +22,7 @@ export { default as MessageActionRow } from './structures/MessageActionRow';
 export { default as MessageAttachment } from './structures/MessageAttachment';
 export { default as MessageButton } from './structures/MessageButton';
 export { default as MessageComponentInteraction } from './structures/MessageComponentInteraction';
+export { default as MessageEmbed } from './structures/MessageEmbed';
 export { default as MessagePayload } from './structures/MessagePayload';
 export { default as MessageSelectMenu } from './structures/MessageSelectMenu';
 export { default as User } from './structures/User';
